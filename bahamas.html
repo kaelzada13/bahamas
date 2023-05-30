@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Porcentagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        function calcularResto() {
+            var valor = parseFloat(document.getElementById("valor").value);
+            var porcentagem = parseFloat(document.querySelector('input[name="porcentagem"]:checked').value);
+            
+            var valorPorcentagem = valor * (porcentagem / 100);
+            var restoPorcentagem = valor - valorPorcentagem;
+            
+            document.getElementById("resultado").innerHTML = "Resto da porcentagem: " + restoPorcentagem; 
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Porcentagem</h1>
+
+        <div>
+            <label>
+                <input type="radio" name="porcentagem" value="30" checked> 30%
+            </label>
+            <label>
+                <input type="radio" name="porcentagem" value="35"> 35%
+            </label>
+        </div>
+
+        <div>
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor" step="0.01">
+        </div>
+
+        <button onclick="calcularResto()">Calcular</button>
+
+        <div id="resultado"></div>
+    </div>
+</body>
+</html>
